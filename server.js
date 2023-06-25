@@ -9,20 +9,20 @@ dotenv.config();
 const app = express();
 var port = process.env.PORT
 
-app.use(express.static('docs'));
+app.use(express.static('public'));
 app.use(express.json());
 
 // Home Route
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/docs/index.html');
+    res.sendFile('index.html', {root: 'public'});
 })
 // Success
 app.get('/success', (req, res) => {
-    res.sendFile(__dirname + '/docs/success.html');
+    res.sendFile('success.html', {root: 'public'});
 })
 // Cancel
 app.get('/cancel', (req, res) => {
-    res.sendFile(__dirname + '/docs/cancel.html');
+    res.sendFile('cancel.html', {root: 'public'});
 })
 // Stripe
 let stripeGateway = stripe(process.env.stripe_api);
