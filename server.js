@@ -14,15 +14,15 @@ app.use(express.json());
 
 // Home Route
 app.get('/', (req, res) => {
-    res.sendFile('index.html', {root: 'docs'})
+    res.sendFile(__dirname + '/docs/index.html');
 })
 // Success
 app.get('/success', (req, res) => {
-    res.sendFile('success.html', {root: 'docs'})
+    res.sendFile(__dirname + '/docs/success.html');
 })
 // Cancel
 app.get('/cancel', (req, res) => {
-    res.sendFile('cancel.html', {root: 'docs'})
+    res.sendFile(__dirname + '/docs/cancel.html');
 })
 // Stripe
 let stripeGateway = stripe(process.env.stripe_api);
